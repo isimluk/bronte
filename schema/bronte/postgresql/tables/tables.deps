@@ -15,3 +15,7 @@
 path = .
 
 brTicker                       :: brStockMarket
+brFinancialStatement           :: brCompany brFinancialPeriod
+brStatementSummary             :: brCurrency brDataSource brFinancialStatement
+brLedgerItem                   :: brStatementType
+brLedgerEntry                  :: brLedgerItem brStatementSummary
