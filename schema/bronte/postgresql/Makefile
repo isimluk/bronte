@@ -18,7 +18,7 @@
 #
 
 STYLE   := postgres
-DIRS    := tables
+DIRS    := tables triggers
 BLEND   := ../blend -as $(STYLE)
 MKFILES := $(shell find . -mindepth 2 -maxdepth 2 -name Makefile)
 
