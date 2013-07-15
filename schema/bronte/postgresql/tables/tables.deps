@@ -15,6 +15,7 @@
 path = .
 
 brTicker                       :: brStockMarket
+brTickerCompanyMap             :: brCompany brTicker
 brFinancialReport              :: brCompany
 brFinancialStatement           :: brFinancialReport brFinancialPeriod \
                                   brFinancialStatementType
