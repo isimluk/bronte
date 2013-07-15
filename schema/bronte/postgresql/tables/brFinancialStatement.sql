@@ -13,20 +13,23 @@ CREATE TABLE brFinancialStatement
 (
     id                 NUMERIC NOT NULL
                            CONSTRAINT br_finstatement_id_pk PRIMARY KEY,
-    company_id         NUMERIC NOT NULL
-                           CONSTRAINT br_finstatement_company_fk
-                               REFERENCES brCompany (id)
+    report_id          NUMERIC NOT NULL
+                           CONSTRAINT br_finstatement_report_fk
+                               REFERENCES brFinancialReport (id)
                                ON DELETE CASCADE,
-    period_id          NUMERIC NOT NULL
+    statement_type     NUMERIC NOT NULL
+                           CONSTRAINT br_finstatement_type_fk
+                               REFERENCES brFinancialStatementType (id)
+                               ON DELETE CASCADE,
+    period_id          NUMERIC
                            CONSTRAINT br_finstatement_period_fk
                                REFERENCES brFinancialPeriod (id)
                                ON DELETE CASCADE,
     period_end         DATE NOT NULL,
-    release_date       DATE,
     notes              TEXT
 );
 
-CREATE UNIQUE INDEX br_finstatement_cpp_uq
-    ON brFinancialStatement (company_id, period_id, period_end);
+CREATE UNIQUE INDEX br_finstatement_rtp_uq
+    ON brFinancialStatement (report_id, statement_type, period_id);
 
 CREATE SEQUENCE br_finstatement_id_seq;
