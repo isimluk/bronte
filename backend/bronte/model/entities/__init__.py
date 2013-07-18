@@ -11,3 +11,4 @@
 #
 
 from brStockMarket import BrStockMarket
+from brTicker import BrTicker
