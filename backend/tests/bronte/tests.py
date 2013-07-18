@@ -19,13 +19,15 @@ sys.path.insert(0, os.path.realpath('../../'))
 from tests import db_connection_string
 from bronte.model.entities import BrStockMarket, BrTicker
 
-class TestBrStockMarket(unittest.TestCase):
+class CommonBase(unittest.TestCase):
     def setUp(self):
         db_engine = create_engine(db_connection_string)
         db_engine.echo = True
         Session = sessionmaker()
         Session.configure(bind=db_engine)
         self.session = Session()
+
+class TestBrStockMarket(CommonBase):
     def test_listing(self):
         for market in self.session.query(BrStockMarket):
             print market.__repr__().encode('utf-8')
@@ -38,14 +40,8 @@ class TestBrStockMarket(unittest.TestCase):
         self._ensure_exists('NYSE')
         self._ensure_exists('NasdaqNM')
 
-class TestBrTicker(unittest.TestCase):
+class TestBrTicker(CommonBase):
     TEST_TICKER = 'BR_TESTING'
-    def setUp(self):
-        db_engine = create_engine(db_connection_string)
-        db_engine.echo = True
-        Session = sessionmaker()
-        Session.configure(bind=db_engine)
-        self.session = Session()
     def _test_exchange(self):
         return self.session.query(BrStockMarket).first()
     def _get_new_ticker(self):
