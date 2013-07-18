@@ -10,10 +10,9 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 #
 
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, Sequence, String
 
-Base = declarative_base()
+from entities_common import Base
 
 class BrStockMarket(Base):
     __tablename__ = 'brstockmarket'
