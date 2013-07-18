@@ -22,15 +22,11 @@ from bronte.model.entities import BrStockMarket, BrTicker
 class CommonBase(unittest.TestCase):
     def setUp(self):
         db_engine = create_engine(db_connection_string)
-        db_engine.echo = True
         Session = sessionmaker()
         Session.configure(bind=db_engine)
         self.session = Session()
 
 class TestBrStockMarket(CommonBase):
-    def test_listing(self):
-        for market in self.session.query(BrStockMarket):
-            print market.__repr__().encode('utf-8')
     def _ensure_exists(self, marker_acr):
         markets = self.session.query(BrStockMarket).filter(BrStockMarket.acronym == marker_acr)
         assert markets.count() == 1
