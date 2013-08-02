@@ -20,5 +20,5 @@ brFinancialReport              :: brCompany
 brFinancialStatement           :: brFinancialReport brFinancialPeriod \
                                   brFinancialStatementType
 brStatementSummary             :: brCurrency brDataSource brFinancialStatement
-brLedgerItem                   :: brStatementType
+brLedgerItem                   :: brFinancialStatementType
 brLedgerEntry                  :: brLedgerItem brStatementSummary

@@ -15,7 +15,7 @@ CREATE TABLE brLedgerItem
                            CONSTRAINT br_ledgeritem_id_pk PRIMARY KEY,
     statement_type_id  NUMERIC NOT NULL
                            CONSTRAINT br_ledgeritem_stype_fk
-                               REFERENCES brStatementType (id)
+                               REFERENCES brFinancialStatementType (id)
                                ON DELETE CASCADE,
     name               VARCHAR(100) NOT NULL
 );
