@@ -21,3 +21,4 @@ from brFinancialStatement import BrFinancialStatement
 from brDataSource import BrDataSource
 from brCurrency import BrCurrency
 from brStatementSummary import BrStatementSummary
+from brLedgerItem import BrLedgerItem
