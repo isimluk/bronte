@@ -17,7 +17,7 @@ CREATE TABLE brFinancialStatement
                            CONSTRAINT br_finstatement_report_fk
                                REFERENCES brFinancialReport (id)
                                ON DELETE CASCADE,
-    statement_type     NUMERIC NOT NULL
+    statement_type_id     NUMERIC NOT NULL
                            CONSTRAINT br_finstatement_type_fk
                                REFERENCES brFinancialStatementType (id)
                                ON DELETE CASCADE,
@@ -30,6 +30,6 @@ CREATE TABLE brFinancialStatement
 );
 
 CREATE UNIQUE INDEX br_finstatement_rtp_uq
-    ON brFinancialStatement (report_id, statement_type, period_id);
+    ON brFinancialStatement (report_id, statement_type_id, period_id);
 
 CREATE SEQUENCE br_finstatement_id_seq;
