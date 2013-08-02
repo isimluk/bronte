@@ -13,8 +13,8 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, ForeignKey, Integer, Sequence, String
 
-from entities_common import Base
-from brFinancialStatementType import BrFinancialStatementType
+from bronte.model.entities.entities_common import Base
+from bronte.model.entities.brFinancialStatementType import BrFinancialStatementType
 
 class BrLedgerItem(Base):
     __tablename__ = 'brledgeritem'

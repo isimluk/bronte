@@ -14,8 +14,8 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.types import Date
 from sqlalchemy import Column, ForeignKey, Integer, Sequence, String
 
-from entities_common import Base
-from brCompany import BrCompany
+from bronte.model.entities.entities_common import Base
+from bronte.model.entities.brCompany import BrCompany
 
 class BrFinancialReport(Base):
     __tablename__ = 'brfinancialreport'

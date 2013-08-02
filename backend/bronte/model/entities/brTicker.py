@@ -13,8 +13,8 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, ForeignKey, Integer, Sequence, String
 
-from entities_common import Base
-from brStockMarket import BrStockMarket
+from bronte.model.entities.entities_common import Base
+from bronte.model.entities.brStockMarket import BrStockMarket
 
 class BrTicker(Base):
     __tablename__ = 'brticker'

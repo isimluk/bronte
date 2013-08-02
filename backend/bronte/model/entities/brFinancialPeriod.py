@@ -12,7 +12,7 @@
 
 from sqlalchemy import Column, Integer, Sequence, String
 
-from entities_common import Base
+from bronte.model.entities.entities_common import Base
 
 class BrFinancialPeriod(Base):
     __tablename__ = 'brfinancialperiod'

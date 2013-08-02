@@ -14,10 +14,10 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.types import Date
 from sqlalchemy import Column, ForeignKey, Integer, Sequence, String
 
-from entities_common import Base
-from brFinancialPeriod import BrFinancialPeriod
-from brFinancialReport import BrFinancialReport
-from brFinancialStatementType import BrFinancialStatementType
+from bronte.model.entities.entities_common import Base
+from bronte.model.entities.brFinancialPeriod import BrFinancialPeriod
+from bronte.model.entities.brFinancialReport import BrFinancialReport
+from bronte.model.entities.brFinancialStatementType import BrFinancialStatementType
 
 class BrFinancialStatement(Base):
     __tablename__ = 'brfinancialstatement'

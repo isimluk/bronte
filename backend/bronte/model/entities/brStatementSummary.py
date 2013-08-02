@@ -14,10 +14,10 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.types import DateTime
 from sqlalchemy import Column, ForeignKey, Integer, Sequence, String
 
-from entities_common import Base
-from brCurrency import BrCurrency
-from brDataSource import BrDataSource
-from brFinancialStatement import BrFinancialStatement
+from bronte.model.entities.entities_common import Base
+from bronte.model.entities.brCurrency import BrCurrency
+from bronte.model.entities.brDataSource import BrDataSource
+from bronte.model.entities.brFinancialStatement import BrFinancialStatement
 
 class BrStatementSummary(Base):
     __tablename__ = 'brstatementsummary'

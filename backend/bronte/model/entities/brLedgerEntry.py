@@ -14,9 +14,9 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.types import DateTime
 from sqlalchemy import Column, ForeignKey, Integer, Sequence
 
-from entities_common import Base
-from brLedgerItem import BrLedgerItem
-from brStatementSummary import BrStatementSummary
+from bronte.model.entities.entities_common import Base
+from bronte.model.entities.brLedgerItem import BrLedgerItem
+from bronte.model.entities.brStatementSummary import BrStatementSummary
 
 class BrLedgerEntry(Base):
     __tablename__ = 'brledgerentry'

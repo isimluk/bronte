@@ -13,7 +13,7 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, ForeignKey, Integer, Sequence, String
 
-from entities_common import Base
+from bronte.model.entities.entities_common import Base
 
 class BrTickerCompanyMap(Base):
     __tablename__ = 'brtickercompanymap'
