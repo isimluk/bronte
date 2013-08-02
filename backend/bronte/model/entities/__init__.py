@@ -19,3 +19,4 @@ from brFinancialStatementType import BrFinancialStatementType
 from brFinancialPeriod import BrFinancialPeriod
 from brFinancialStatement import BrFinancialStatement
 from brDataSource import BrDataSource
+from brCurrency import BrCurrency
