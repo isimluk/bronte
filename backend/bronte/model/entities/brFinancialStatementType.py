@@ -10,9 +10,18 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 #
 
-from brStockMarket import BrStockMarket
-from brTicker import BrTicker
-from brCompany import BrCompany
-from brTickerCompanyMap import BrTickerCompanyMap
-from brFinancialReport import BrFinancialReport
-from brFinancialStatementType import BrFinancialStatementType
+from sqlalchemy import Column, Integer, Sequence, String
+
+from entities_common import Base
+
+class BrFinancialStatementType(Base):
+    __tablename__ = 'brfinancialstatementtype'
+
+    id = Column(Integer, Sequence('br_finstatetype_id_seq'), primary_key=True)
+    name = Column(String)
+
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return "<BrFinancialStatementType('%s')>" % (self.name)
