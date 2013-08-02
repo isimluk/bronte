@@ -17,3 +17,4 @@ from brTickerCompanyMap import BrTickerCompanyMap
 from brFinancialReport import BrFinancialReport
 from brFinancialStatementType import BrFinancialStatementType
 from brFinancialPeriod import BrFinancialPeriod
+from brFinancialStatement import BrFinancialStatement
