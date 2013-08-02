@@ -22,3 +22,4 @@ from brDataSource import BrDataSource
 from brCurrency import BrCurrency
 from brStatementSummary import BrStatementSummary
 from brLedgerItem import BrLedgerItem
+from brLedgerEntry import BrLedgerEntry
