@@ -14,3 +14,4 @@ from brStockMarket import BrStockMarket
 from brTicker import BrTicker
 from brCompany import BrCompany
 from brTickerCompanyMap import BrTickerCompanyMap
+from brFinancialReport import BrFinancialReport
