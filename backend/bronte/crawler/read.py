@@ -11,11 +11,13 @@
 #
 
 import HTMLParser
+import os
 import pickle
 import re
+import sys
+sys.path.insert(0, os.path.realpath('../../'))
 
-class CrawlerException(Exception):
-    pass
+from bronte.crawler.common import CrawlerException
 
 class GoogleDateParser(object):
     def __init__(self, date_string):
