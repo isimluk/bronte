@@ -11,7 +11,7 @@
 
 INSERT INTO brStockMarket (id, acronym, name) VALUES (sequence_nextval('br_stockmarker_id_seq'), 'NYSE', 'New York Stock Exchange');
 INSERT INTO brStockMarket (id, acronym, name) VALUES (sequence_nextval('br_stockmarker_id_seq'), 'NASDAQ', 'National Association of Securities Dealers Automated Quotations');
-INSERT INTO brStockMarket (id, acronym, name) VALUES (sequence_nextval('br_stockmarker_id_seq'), 'nasdaqNM', 'Nasdaq National Market Securities');
+INSERT INTO brStockMarket (id, acronym, name) VALUES (sequence_nextval('br_stockmarker_id_seq'), 'NasdaqNM', 'Nasdaq National Market Securities');
 INSERT INTO brStockMarket (id, acronym, name) VALUES (sequence_nextval('br_stockmarker_id_seq'), 'LON', 'London Stock Exchange');
 INSERT INTO brStockMarket (id, acronym, name) VALUES (sequence_nextval('br_stockmarker_id_seq'), 'VIE', 'Vienna Stock Exchange');
 INSERT INTO brStockMarket (id, acronym, name) VALUES (sequence_nextval('br_stockmarker_id_seq'), 'TSX', 'Toronto Stock Exchange');
