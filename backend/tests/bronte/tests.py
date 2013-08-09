@@ -13,17 +13,12 @@
 import os
 import sys
 import unittest
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 sys.path.insert(0, os.path.realpath('../../'))
-from tests import db_connection_string
 from bronte.model.entities import BrStockMarket, BrTicker
+from bronte.model import Session
 
 class CommonBase(unittest.TestCase):
     def setUp(self):
-        db_engine = create_engine(db_connection_string)
-        Session = sessionmaker()
-        Session.configure(bind=db_engine)
         self.session = Session()
 
 class TestBrStockMarket(CommonBase):
