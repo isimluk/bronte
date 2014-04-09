@@ -19,6 +19,11 @@ sys.path.insert(0, os.path.realpath('../../'))
 from bronte.crawler.common import CrawlerException
 from bronte.crawler.google.model import GoogleLedgerItem
 from bronte.crawler.google.parser import GoogleDateParser
+from bronte.model import Session
+from bronte.model.BrFactory import BrFactory
+
+session = Session()
+factory = BrFactory(session)
 
 class UFGoogleDataSerializer(object):
     def __init__(self, symbol):
@@ -51,6 +56,26 @@ class UFGoogleDataSerializer(object):
             self.result[day][statement_type][period] = {}
         assert item_name not in self.result[day][statement_type][period]
         self.result[day][statement_type][period][item_name] = value
+
+class UFYahooDataSerializer(object):
+    def __init__(self, symbol):
+        self.symbol = symbol
+
+    def fetch(self):
+        self.info = pickle.load(open('data2.pkl', 'rb'))
+
+    def store(self):
+        print self._get_ticker()
+
+    def _get_ticker(self):
+        market = self._get_stock_exchange()
+        return factory.get_ticker(market, symbol)
+
+    def _get_stock_exchange(self):
+        acronym =  self.info['stock_exchange']
+        if acronym.startswith('"'):
+            acronym = acronym[1:-1]
+        return factory.get_stock_market(acronym)
 
 GC = UFGoogleDataSerializer()
 GC.serialize_financials(g);
