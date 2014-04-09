@@ -14,6 +14,9 @@ import HTMLParser
 import os
 import pickle
 import sys
+
+from ultrafinance.dam.googleFinance import GoogleFinance
+
 sys.path.insert(0, os.path.realpath('../../'))
 
 from bronte.crawler.common import CrawlerException
@@ -30,7 +33,7 @@ class UFGoogleDataSerializer(object):
         self.symbol = symbol
 
     def fetch(self):
-        self.financials = pickle.load(open('data.pkl', 'rb'))
+        self.financials = GoogleFinance().getFinancials(self.symbol)
 
     def serialize_financials(self):
         self.result = {}
