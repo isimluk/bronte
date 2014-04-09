@@ -21,34 +21,36 @@ from bronte.crawler.google.model import GoogleLedgerItem
 from bronte.crawler.google.parser import GoogleDateParser
 
 class GoogleDataSerializer(object):
-    def serialize_financials(self, financials_dict):
-        result = {}
+    def __init__(self, symbol):
+        self.symbol = symbol
+
+    def fetch(self):
+        self.financials = pickle.load(open('data.pkl', 'rb'))
+
+    def serialize_financials(self):
+        self.result = {}
         h = HTMLParser.HTMLParser() 
-        for item_name, values in financials_dict.iteritems():
+        for item_name, values in self.financials.iteritems():
             item_name = h.unescape(item_name)
             statement_type = GoogleLedgerItem.get_statement_type(item_name)
             for date, value in values.iteritems():
                 if value:
                     d = GoogleDateParser(date)
-                    self._store_result(result, d, statement_type, item_name,
-                            value)
-        print result
+                    self._store_result(d, statement_type, item_name, value)
+        print self.result
 
-    def _store_result(self, result, date, statement_type, item_name,
+    def _store_result(self, date, statement_type, item_name,
             value):
         day = date.getDay()
         period = date.getPeriod()
-        if day not in result:
-            result[day] = {}
-        if statement_type not in result[day]:
-            result[day][statement_type] = {}
-        if period not in result[day][statement_type]:
-            result[day][statement_type][period] = {}
-        assert item_name not in result[day][statement_type][period]
-        result[day][statement_type][period][item_name] = value
-
-pkl_file = open('data.pkl', 'rb')
-g = pickle.load(pkl_file)
+        if day not in self.result:
+            self.result[day] = {}
+        if statement_type not in self.result[day]:
+            self.result[day][statement_type] = {}
+        if period not in self.result[day][statement_type]:
+            self.result[day][statement_type][period] = {}
+        assert item_name not in self.result[day][statement_type][period]
+        self.result[day][statement_type][period][item_name] = value
 
 GC = GoogleDataSerializer()
 GC.serialize_financials(g);
