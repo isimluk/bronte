@@ -20,7 +20,7 @@ from bronte.crawler.common import CrawlerException
 from bronte.crawler.google.model import GoogleLedgerItem
 from bronte.crawler.google.parser import GoogleDateParser
 
-class GoogleDataSerializer(object):
+class UFGoogleDataSerializer(object):
     def __init__(self, symbol):
         self.symbol = symbol
 
@@ -52,6 +52,6 @@ class GoogleDataSerializer(object):
         assert item_name not in self.result[day][statement_type][period]
         self.result[day][statement_type][period][item_name] = value
 
-GC = GoogleDataSerializer()
+GC = UFGoogleDataSerializer()
 GC.serialize_financials(g);
 
