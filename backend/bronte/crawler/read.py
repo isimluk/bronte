@@ -16,6 +16,7 @@ import pickle
 import sys
 
 from ultrafinance.dam.googleFinance import GoogleFinance
+from ultrafinance.dam.yahooFinance import YahooFinance
 
 sys.path.insert(0, os.path.realpath('../../'))
 
@@ -65,7 +66,7 @@ class UFYahooDataSerializer(object):
         self.symbol = symbol
 
     def fetch(self):
-        self.info = pickle.load(open('data2.pkl', 'rb'))
+        self.info = YahooFinance().getAll(self.symbol)
 
     def store(self):
         print self._get_ticker()
