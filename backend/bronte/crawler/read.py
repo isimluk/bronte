@@ -77,6 +77,23 @@ class UFYahooDataSerializer(object):
             acronym = acronym[1:-1]
         return factory.get_stock_market(acronym)
 
-GC = UFGoogleDataSerializer()
-GC.serialize_financials(g);
+
+
+class StockSerializer(object):
+    def __init__(self, symbol):
+        self.symbol = symbol
+        self.ys = UFYahooDataSerializer(symbol)
+        self.gs = UFGoogleDataSerializer(symbol)
+
+    def fetch(self):
+        self.ys.fetch()
+        self.gs.fetch()
+
+    def store(self):
+        self.ys.store()
+        self.gs.serialize_financials()
+
+ss = StockSerializer("GOOG")
+ss.fetch()
+ss.store()
 
