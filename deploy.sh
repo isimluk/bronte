@@ -25,10 +25,16 @@ if ! systemctl status postgresql.service > /dev/null; then
 fi
 
 username=bronte
+dbname=bronte
 if ! grep -q "^$username:" /etc/passwd; then
 	sudo adduser $username
 	echo "The applicaion will run under the $username. Set the password for the user."
-	sudo passwd $username
+	read password
+	sudo passwd $username --stdin <<< $password
+	cat > backend/bronte.cfg <<_END
+[db]
+connection_string = 'postgresql://$username:$password@localhost:5432/$dbname'
+_END
 fi
 
 pcmd='sudo su - postgres -c psql template1'
@@ -36,10 +42,10 @@ if ! $pcmd <<< '\du' | grep -q $username; then
 	$pcmd <<< "CREATE USER $username;"
 fi
 
-if ! $pcmd <<< '\l' | grep -q $username; then
+if ! $pcmd <<< '\l' | grep -q $dbname; then
 	$pcmd <<_END
-        CREATE DATABASE $username;
-	GRANT ALL PRIVILEGES ON DATABASE $username to $username;
+	CREATE DATABASE $dbname;
+	GRANT ALL PRIVILEGES ON DATABASE $dbname to $username;
 _END
 fi
 
