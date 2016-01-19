@@ -39,7 +39,6 @@ python tests.py
 
 How to manually connect to the database
 ---------------------------------------
-systemctl start postgresql.service
-su postgres
-psql bronte
+sudo systemctl start postgresql.service
+psql -d myDb -U username -W
 
