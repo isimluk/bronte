@@ -17,6 +17,13 @@ for pkg in postgresql postgresql-server python-sqlalchemy python-psycopg2; do
 	rpm -q --quiet $pkg || sudo dnf install $pkg
 done
 
+if ! sudo grep -q "local[[:space:]]*all[[:space:]]*all[[:space:]]*trust" /var/lib/pgsql/data/pg_hba.conf; then
+	echo "Make sure your /var/lib/pgsql/data/pg_hba.conf contains:
+	local	all	all	trust
+	host	all	127.0.0.1/32	trust"
+	exit 1
+fi
+
 if ! systemctl status postgresql.service > /dev/null; then
 	if ! sudo systemctl start postgresql.service; then
 		systemctl status postgresql.service
