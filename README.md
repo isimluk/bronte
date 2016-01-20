@@ -10,7 +10,7 @@ analysis of financial instruments (stocks and options).
 
 Package Requirements
 --------------------
-backend: python-sqlalchemy python-psycopg2 ultra-finance
+backend: python-sqlalchemy python-psycopg2 python-BeautifulSoup ultra-finance
 schema:  postgresql
 
 How to build schema

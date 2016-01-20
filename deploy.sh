@@ -13,7 +13,7 @@
 set -e -o pipefail
 set -x
 
-for pkg in postgresql postgresql-server python-sqlalchemy python-psycopg2; do
+for pkg in postgresql postgresql-server python-sqlalchemy python-psycopg2 python-BeautifulSoup; do
 	rpm -q --quiet $pkg || sudo dnf install $pkg
 done
 
