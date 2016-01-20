@@ -56,3 +56,7 @@ if ! $pcmd <<< '\l' | grep -q $dbname; then
 _END
 fi
 
+pushd schema/bronte/postgresql
+make clean main
+popd
+$pcmd < schema/bronte/postgresql/main.sql
