@@ -38,7 +38,7 @@ class UFGoogleDataSerializer(object):
 
     def serialize_financials(self):
         self.result = {}
-        h = HTMLParser.HTMLParser() 
+        h = HTMLParser.HTMLParser()
         for item_name, values in self.financials.iteritems():
             item_name = h.unescape(item_name)
             statement_type = GoogleLedgerItem.get_statement_type(item_name)
