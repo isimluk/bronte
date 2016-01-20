@@ -40,7 +40,7 @@ if ! grep -q "^$username:" /etc/passwd; then
 	sudo passwd $username --stdin <<< $password
 	cat > backend/bronte.cfg <<_END
 [db]
-connection_string = 'postgresql://$username:$password@localhost:5432/$dbname'
+connection_string = 'postgresql://$username:$password@127.0.0.1:5432/$dbname'
 _END
 fi
 
