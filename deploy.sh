@@ -61,3 +61,7 @@ make clean main
 popd
 
 psql -d bronte -U bronte -W < schema/bronte/postgresql/main.sql < schema/bronte/postgresql/main.sql
+
+pushd backend/tests/bronte
+python tests.py
+popd
