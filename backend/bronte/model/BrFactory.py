@@ -17,8 +17,17 @@ class BrFactory(object):
         self.s = session
 
     def get_stock_market(self, market_acronym):
+        market_acronym = self._market_acronym_override(market_acronym)
         markets = self.s.query(BrStockMarket) \
                 .filter(BrStockMarket.acronym == market_acronym)
         assert markets.count() == 1
         return markets[0]
 
+    @staticmethod
+    def _market_acronym_override(market_acronym):
+        acronym_map = {
+          'NYQ': 'NYSE'
+        }
+        if market_acronym in acronym_map:
+            return acronym_map[market_acronym]
+        return market_acronym
