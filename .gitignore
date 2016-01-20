@@ -1,0 +1,4 @@
+backend/bronte.cfg
+schema/bronte/postgresql/main.sql
+*.pyc
+*.swp
