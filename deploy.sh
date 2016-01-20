@@ -59,4 +59,5 @@ fi
 pushd schema/bronte/postgresql
 make clean main
 popd
-$pcmd < schema/bronte/postgresql/main.sql
+
+psql -d bronte -U bronte -W < schema/bronte/postgresql/main.sql < schema/bronte/postgresql/main.sql
