@@ -11,10 +11,25 @@
 #
 
 from bronte.model.entities.brStockMarket import BrStockMarket
+from bronte.model.entities.brTicker import BrTicker
 
 class BrFactory(object):
     def __init__(self, session):
         self.s = session
+
+    def get_ticker(self, br_market, ticker):
+        existing_tickers = self.s.query(BrTicker) \
+                .filter(BrTicker.exchange_id == br_market.id, BrTicker.ticker == ticker)
+        if existing_tickers.count() == 1:
+            return existing_tickers[0]
+        elif existing_tickers.count() == 0:
+            t = BrTicker(br_market, ticker, None)
+            self.s.add(t)
+            self.s.commit()
+            self.s.flush()
+            return t
+        else:
+            assert False
 
     def get_stock_market(self, market_acronym):
         market_acronym = self._market_acronym_override(market_acronym)
