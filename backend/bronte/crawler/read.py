@@ -73,7 +73,7 @@ class UFYahooDataSerializer(object):
 
     def _get_ticker(self):
         market = self._get_stock_exchange()
-        return factory.get_ticker(market, symbol)
+        return factory.get_ticker(market, self.symbol)
 
     def _get_stock_exchange(self):
         acronym =  self.info['stock_exchange']
