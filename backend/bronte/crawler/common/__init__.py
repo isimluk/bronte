@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (c) 2013 Simon Lukasik
+# Copyright (c) 2013--2016 Simon Lukasik
 #
 # This software is licensed to you under the GNU General Public License,
 # version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -10,6 +10,8 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 #
 
-class CrawlerException(Exception):
+from bronte import BronteException
+
+class CrawlerException(BronteException):
     pass
 
