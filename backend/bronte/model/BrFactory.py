@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (c) 2013 Simon Lukasik
+# Copyright (c) 2013--2016 Simon Lukasik
 #
 # This software is licensed to you under the GNU General Public License,
 # version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -10,6 +10,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 #
 
+from bronte import BronteException
 from bronte.model.entities.brStockMarket import BrStockMarket
 from bronte.model.entities.brTicker import BrTicker
 
@@ -29,6 +30,7 @@ class BrFactory(object):
             self.s.flush()
             return t
         else:
+            raise BronteException("Expecting single ticket but got %s" % existing_tickers.all())
             assert False
 
     def get_stock_market(self, market_acronym):
