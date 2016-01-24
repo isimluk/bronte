@@ -1,6 +1,6 @@
 Bronte -- Stock Analysis Tool
 =============================
-Copyright (c) 2013--2014 Simon Lukasik
+Copyright (c) 2013--2016 Simon Lukasik
 
 Mission Statement
 -----------------
@@ -15,8 +15,10 @@ schema:  postgresql
 
 How to build schema
 -------------------
+```
 cd schema/bronte/postgresql
 make clean main
+```
 
 How to install schema
 ---------------------
@@ -27,18 +29,24 @@ How to install schema
 
 How to configure backend
 ------------------------
+```
 cat > cat backend/bronte.cfg <<_END
 [db]
 connection_string = 'postgresql://bronte:changeme@localhost:5432/bronte'
 _END
+```
 
 How to test
 -----------
+```
 cd backend/tests/bronte
 python tests.py
+```
 
 How to manually connect to the database
 ---------------------------------------
+```
 sudo systemctl start postgresql.service
 psql -d bronte -U bronte -W
+```
 
