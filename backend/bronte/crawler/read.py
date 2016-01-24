@@ -24,7 +24,7 @@ from bronte.crawler.common import CrawlerException
 from bronte.crawler.google.model import GoogleLedgerItem
 from bronte.crawler.google.parser import GoogleDateParser
 from bronte.model import Session
-from bronte.model.BrFactory import BrFactory
+from bronte.model.brFactory import BrFactory
 
 session = Session()
 factory = BrFactory(session)
