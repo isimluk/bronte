@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (c) 2013 Simon Lukasik
+# Copyright (c) 2013--2016 Simon Lukasik
 #
 # This software is licensed to you under the GNU General Public License,
 # version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -14,12 +14,8 @@ import os
 import sys
 import unittest
 sys.path.insert(0, os.path.realpath('../../'))
+from tests.bronte import CommonBase
 from bronte.model.entities import BrStockMarket, BrTicker
-from bronte.model import Session
-
-class CommonBase(unittest.TestCase):
-    def setUp(self):
-        self.session = Session()
 
 class TestBrStockMarket(CommonBase):
     def _ensure_exists(self, marker_acr):
