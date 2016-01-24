@@ -15,6 +15,7 @@ import sys
 import unittest
 sys.path.insert(0, os.path.realpath('../../'))
 from tests.bronte import CommonBase
+from tests.bronte.model.factory import TestBrFactory
 from bronte.model.entities import BrStockMarket, BrTicker
 
 class TestBrStockMarket(CommonBase):
